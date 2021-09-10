@@ -44,5 +44,5 @@ jobs:
         run: dbt run --profiles-dir ./ --threads 2 ${{ github.event.client_payload.args }}
       - uses: actions/upload-artifact@v2
         with:
-          name: dbt-metadata
+          name: dbt.manifest.json
           path: target/manifest.json

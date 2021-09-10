@@ -43,7 +43,7 @@ jobs:
         if: github.event_name == 'repository_dispatch'
         run: dbt run --profiles-dir ./ --threads 2 ${{ github.event.client_payload.args }}
       - name: Generate dbt Docs
-        run: dbt docs generate
+        run: dbt docs generate --profiles-dir ./
       - uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}
         with:

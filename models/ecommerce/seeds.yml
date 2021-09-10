@@ -1,7 +1,7 @@
 version: 2
 seeds:
   - name: customer
-    meta:
+    meta: 
       metriql:
         measures:
           total_customers:

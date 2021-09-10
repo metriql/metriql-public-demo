@@ -20,7 +20,8 @@ jobs:
         id: changedfiles
         with:
           token: ${{ github.token }}
-          pattern: '(models\/[A-Za-z0-9_]+\.sql)$'
+          pattern: '.+'
+          #pattern: '(models\/[A-Za-z0-9_]+\.sql)$'
       - name: Get Database Credentials
         run: echo '${{secrets.dbt_profiles_yml}}' > profiles.yml
       - name: Install dbt

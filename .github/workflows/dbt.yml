@@ -1,0 +1,43 @@
+name: dbt
+
+on:
+  repository_dispatch:
+    types: [trigger_dbt]
+  push:
+    branches:
+      - master
+    paths:
+      - '**.sql'
+  # schedule:
+    # - cron: '0 */2 * * *'
+jobs:
+  dbt:
+    name: dbt
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@master
+      - uses: buremba/get-changed-files-with-regex@0.5
+        if: github.event_name == 'push' # only valid when a new commit is pushed
+        name: Changed Files Exporter with Regex
+        id: changedfiles
+        with:
+          token: ${{ github.token }}
+          pattern: '(models\/[A-Za-z0-9_]+\.sql)$'
+      - name: Get Database Credentials
+        run: echo '${{secrets.dbt_profiles_yml}}' > profiles.yml
+      - name: Install dbt
+        run: sudo apt update && sudo apt install python3-pip && pip3 install --upgrade pip && pip3 install dbt
+      - name: Install dbt Dependencies
+        run: dbt deps --profiles-dir ./
+      - name: Insert dbt Seeds
+        if: github.event_name == 'repository_dispatch'
+        run: dbt seed --profiles-dir ./
+      - name: Run dbt [Full Refresh] # perform full-refresh for new/modified models
+        if: github.event_name == 'push' && (steps.changedfiles.outputs.modified != '' || steps.changedfiles.outputs.added != '')
+        run: dbt run --profiles-dir ./ --full-refresh --threads 2 --models ${{ steps.changedfiles.outputs.modified }} ${{ steps.changedfiles.outputs.added }}
+      - name: Run dbt [Scheduled]
+        if: github.event_name == 'schedule'
+        run: dbt run --profiles-dir ./ --threads 2
+      - name: Run dbt [Manuel]
+        if: github.event_name == 'repository_dispatch'
+        run: dbt run --profiles-dir ./ --threads 2 ${{ github.event.client_payload.args }}

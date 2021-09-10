@@ -5,7 +5,7 @@ on:
     types: [trigger_dbt]
   push:
     branches:
-      - master
+      - main
   # schedule:
     # - cron: '0 */2 * * *'
 jobs:

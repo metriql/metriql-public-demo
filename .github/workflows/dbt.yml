@@ -6,8 +6,6 @@ on:
   push:
     branches:
       - master
-    paths:
-      - '**.sql'
   # schedule:
     # - cron: '0 */2 * * *'
 jobs:

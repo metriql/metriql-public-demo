@@ -42,7 +42,10 @@ jobs:
       - name: Run dbt [Manuel]
         if: github.event_name == 'repository_dispatch'
         run: dbt run --profiles-dir ./ --threads 2 ${{ github.event.client_payload.args }}
-      - uses: actions/upload-artifact@v2
+      - name: Generate dbt Docs
+        run: dbt docs generate
+      - uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
         with:
-          name: dbt.manifest.json
-          path: target/manifest.json
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target

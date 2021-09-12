@@ -1,4 +1,4 @@
 FROM buremba/metriql:latest
 
 ENTRYPOINT ["java -cp \"/app/lib/*\" com.metriql.ServiceStarterKt"]
-CMD ["serve", "--port", "$PORT"]
+CMD ["serve", "--port", "${PORT}"]

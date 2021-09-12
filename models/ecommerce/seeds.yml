@@ -8,7 +8,6 @@ seeds:
             aggregation: count
             report:
               superset:
-                d3_format: 
                 certification_details: buremba
     columns:
       - name: c_custkey
@@ -30,7 +29,7 @@ seeds:
             aggregation: count
         relations:
           customer:
-            to: source('tpch', 'customer')
+            to: ref('customer')
             source: o_custkey
             target: c_custkey
             relationship: many_to_one

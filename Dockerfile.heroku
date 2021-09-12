@@ -1,4 +1,6 @@
 FROM buremba/metriql:latest
 
+ENV METRIQL_RUN_PORT ${PORT}
+
 ENTRYPOINT ["java -cp \"/app/lib/*\" com.metriql.ServiceStarterKt"]
-CMD ["serve", "--port", "${PORT}"]
+CMD ["serve"]

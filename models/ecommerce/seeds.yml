@@ -20,7 +20,6 @@ seeds:
       - name: c_phone
       - name: c_acctbal
       - name: c_mktsegment
-      - name: c_comment
   - name: orders
     meta:
       metriql:
@@ -51,4 +50,3 @@ seeds:
       - name: o_orderpriority
       - name: o_clerk
       - name: o_shippriority
-      - name: o_comment

@@ -2,7 +2,7 @@ Welcome to your new dbt project!
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy) 
 [<img src="https://deploy.cloud.run/button.svg" height="32">](https://deploy.cloud.run)
-[![amplifybutton](https://oneclick.amplifyapp.com/button.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/metriql/metriql-public-demo)
+[<img src="https://oneclick.amplifyapp.com/button.svg" height="32" alt="amplifybutton">](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/metriql/metriql-public-demo)
 [![Deploy to DigitalOcean](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/metriql/metriql-public-demo/tree/main)
 
 ### Using the starter project

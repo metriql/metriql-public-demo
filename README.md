@@ -2,7 +2,7 @@ Welcome to your new dbt project!
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-[!<img src="https://deploy.cloud.run/button.svg" width="20">](https://deploy.cloud.run)
+[!<img src="https://deploy.cloud.run/button.svg" height="32">](https://deploy.cloud.run)
 
 ### Using the starter project
 

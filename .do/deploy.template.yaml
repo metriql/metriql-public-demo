@@ -1,0 +1,19 @@
+spec:
+ name: metriql
+ services:
+ - name: web
+   github:
+     branch: main
+     deploy_on_push: true
+     repo: metriql/metriql-public-demo
+   envs:
+    - key: METRIQL_API_AUTH_USERNAME_PASSWORD
+      value: "Your username:password pair for basic authentication. Leave it empty if you don't want to protect"
+      required: false
+      scope: RUN_TIME
+    - key: DBT_MANIFEST_JSON
+      value: "The URL of dbt's manifest.yml file. Valid URLs: \n https://metriql.github.io/metriql-public-demo/manifest.json\ndbt-cloud://ACCOUNT_ID/PROJECT_ID?api_key=API_KEY&environment=ENVIRONMENT_ID)"
+      scope: RUN_TIME
+    - key: DBT_PROFILES_CONTENT
+      description: "The content of dbt's profiles.yml file. You should minify yml to a single file to pass the value. (Here is an online tool: https://onlineyamltools.com/minify-yaml)"
+      scope: RUN_TIME

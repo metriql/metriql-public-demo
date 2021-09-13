@@ -1,5 +1,8 @@
 Welcome to your new dbt project!
 
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run)
+
 ### Using the starter project
 
 Try running the following commands:

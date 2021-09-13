@@ -1,2 +1,2 @@
 #!/bin/bash
-java -cp "/app/lib/*" com.metriql.ServiceStarterKt
+java -cp "/app/lib/*" com.metriql.ServiceStarterKt serve

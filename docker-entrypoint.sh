@@ -1,2 +1,2 @@
 #!/bin/bash
-java -cp "/app/lib/*" com.metriql.ServiceStarterKt serve
+java -cp "/app/lib/*" $JAVA_TOOL_OPTIONS com.metriql.ServiceStarterKt serve

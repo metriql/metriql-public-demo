@@ -31,7 +31,7 @@ seeds:
             to: ref('customer')
             source: o_custkey
             target: c_custkey
-            relationship: many_to_one
+            relationship: one_to_one
             type: left_join
     columns:
       - name: o_orderkey

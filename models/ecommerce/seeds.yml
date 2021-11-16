@@ -62,7 +62,7 @@ metrics:
     time_grains: [day, week, month]
 
     dimensions:
-      - name: c_mktsegment
+      - c_mktsegment
     
     filters:
       - field: is_paying

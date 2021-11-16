@@ -50,7 +50,7 @@ seeds:
       - name: o_orderpriority
       - name: o_clerk
       - name: o_shippriority
- metrics:
+metrics:
   - name: new_customers
     label: New Customers
     model: ref('customer')

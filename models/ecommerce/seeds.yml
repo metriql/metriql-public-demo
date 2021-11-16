@@ -69,6 +69,6 @@ metrics:
         operator: '='
         value: true
     meta:
-        is_okr: True
+        is_okr: true
     tags:
       - okrs

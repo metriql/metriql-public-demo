@@ -66,6 +66,9 @@ metrics:
     
     filters:
       - field: is_paying
+        operator: '='
         value: true
-
-    meta: {}
+    meta:
+        is_okr: True
+    tags:
+      - okrs

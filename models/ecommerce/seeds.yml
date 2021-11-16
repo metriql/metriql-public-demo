@@ -50,3 +50,22 @@ seeds:
       - name: o_orderpriority
       - name: o_clerk
       - name: o_shippriority
+ metrics:
+  - name: new_customers
+    label: New Customers
+    model: ref('customer')
+    description: "The number of paid customers who are using the product"
+    type: count
+    sql: c_custkey
+
+    timestamp: signup_date
+    time_grains: [day, week, month]
+
+    dimensions:
+      - name: c_mktsegment
+    
+    filters:
+      - field: is_paying
+        value: true
+
+    meta: {}

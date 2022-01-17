@@ -48,27 +48,40 @@ seeds:
             name: total_price
       - name: o_orderdate
       - name: o_orderpriority
+        meta:
+          metriql.dimension:
+            type: string
       - name: o_clerk
       - name: o_shippriority
 metrics:
-  - name: new_customers
-    label: New Customers
-    model: ref('customer')
-    description: "The number of paid customers who are using the product"
+  - name: important_orders
+    model: ref('orders')
+    label: Important Order Counts
+    description: "Imported orders from our customers"
     type: count
-    sql: c_custkey
-
-    timestamp: signup_date
-    time_grains: [day, week, month]
+    timestamp: o_orderdate
+    time_grains: [day, week, month, year]
 
     dimensions:
-      - c_mktsegment
+      - "customer.c_mktsegment"
+      - o_clerk
+      - o_orderpriority
     
     filters:
-      - field: is_paying
-        operator: "="
-        value: "true"
+      - field: o_orderpriority
+        operator: "not_equals"
+        value: "test"
     meta:
-        is_okr: true
+        metriql:
+          hidden: false
     tags:
       - okrs
+  - name: paid_users
+    model: ref('orders')
+    label: Paid Users
+    type: count
+    sql: c_custkey
+    timestamp: o_orderdate
+    time_grains: [day, week, month]
+    dimensions:
+      - "customer.c_mktsegments"

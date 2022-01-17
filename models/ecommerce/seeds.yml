@@ -7,7 +7,7 @@ seeds:
           total_customers:
             aggregation: count
             report:
-              superset:
+              superset: 
                 certification_details: buremba
     columns:
       - name: c_custkey

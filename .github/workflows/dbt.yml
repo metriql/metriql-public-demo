@@ -25,7 +25,7 @@ jobs:
       - name: Get Database Credentials
         run: echo '${{secrets.dbt_profiles_yml}}' > profiles.yml
       - name: Install dbt
-        run: sudo apt update && sudo apt install python3-pip && pip3 install --upgrade pip && pip3 install dbt-postgres==1.0.0rc1
+        run: sudo apt update && sudo apt install python3-pip && pip3 install --upgrade pip && pip3 install dbt-postgres
       - name: Install dbt Dependencies
         run: dbt deps --profiles-dir ./
       - name: Insert dbt Seeds

@@ -80,7 +80,7 @@ metrics:
     model: ref('orders')
     label: Paid Users
     type: count
-    sql: c_custkey
+    sql: o_custkey
     timestamp: o_orderdate
     time_grains: [day, week, month]
     dimensions:

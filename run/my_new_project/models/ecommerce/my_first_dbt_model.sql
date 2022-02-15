@@ -8,7 +8,7 @@ with source_data as (
     union all
     select null as id
 
-)
+) 
 
 select *
 from source_data

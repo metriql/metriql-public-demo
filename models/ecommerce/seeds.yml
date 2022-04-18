@@ -6,7 +6,7 @@ seeds:
         measures:
           total_customers:
             aggregation: count
-            report:
+            report:   
               superset: 
                 certification_details: buremba 
     columns:

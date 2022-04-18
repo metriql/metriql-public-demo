@@ -8,7 +8,7 @@ seeds:
             aggregation: count
             report:
               superset: 
-                certification_details: buremba
+                certification_details: buremba 
     columns:
       - name: c_custkey
       - name: c_name

@@ -8,7 +8,7 @@ with source_data as (
 
 ) 
 
-select *
+select * 
 from source_data
 
 /*

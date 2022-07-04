@@ -1,5 +1,5 @@
 
-  create view "d2svohmkcr2nvd"."public"."my_first_dbt_model__dbt_tmp" as (
+  create view "metriql_demo"."public"."my_first_dbt_model__dbt_tmp" as (
     
 
 with source_data as (
@@ -10,7 +10,7 @@ with source_data as (
 
 ) 
 
-select *
+select * 
 from source_data
 
 /*

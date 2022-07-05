@@ -2,7 +2,7 @@ services:
   - type: web
     name: metriql-web
     env: docker
-    branch: master
+    branch: main
     dockerfilePath: ./Dockerfile
     dockerContext: ./
     healthCheckPath: /version
@@ -18,3 +18,4 @@ envVarGroups:
       - key: DBT_MANIFEST_JSON
         value: https://metriql.github.io/metriql-public-demo/manifest.json
       - key: DBT_PROFILES_CONTENT
+        sync: false

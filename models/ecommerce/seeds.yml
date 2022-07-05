@@ -6,9 +6,9 @@ seeds:
         measures:
           total_customers:
             aggregation: count
-            report:
-              superset:
-                certification_details: buremba
+            report:   
+              superset: 
+                certification_details: buremba 
     columns:
       - name: c_custkey
       - name: c_name
@@ -31,7 +31,7 @@ seeds:
             to: ref('customer')
             source: o_custkey
             target: c_custkey
-            relationship: many_to_one
+            relationship: one_to_one
             type: left_join
     columns:
       - name: o_orderkey
@@ -48,5 +48,40 @@ seeds:
             name: total_price
       - name: o_orderdate
       - name: o_orderpriority
+        meta:
+          metriql.dimension:
+            type: string
       - name: o_clerk
       - name: o_shippriority
+metrics:
+  - name: important_orders
+    model: ref('orders')
+    label: Important Order Counts
+    description: "Imported orders from our customers"
+    type: count
+    timestamp: o_orderdate
+    time_grains: [day, week, month, year]
+
+    dimensions:
+      - "customer.c_mktsegment"
+      - o_clerk
+      - o_orderpriority
+    
+    filters:
+      - field: o_orderpriority
+        operator: "not_equals"
+        value: "test"
+    meta:
+        metriql:
+          hidden: false
+    tags:
+      - okrs
+  - name: paid_users
+    model: ref('orders')
+    label: Paid Users
+    type: count
+    sql: o_custkey
+    timestamp: o_orderdate
+    time_grains: [day, week, month]
+    dimensions:
+      - "customer.c_mktsegments"

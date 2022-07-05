@@ -1,7 +1,5 @@
 
-    
-    create table "metriql_demo"."public"."customer" ("c_custkey" integer,"c_name" text,"c_address" text,"c_nationkey" integer,"c_phone" text,"c_acctbal" float8,"c_mktsegment" text)
-  ;
+    truncate table "metriql_demo"."public"."customer";
     -- dbt seed --
     
           insert into "metriql_demo"."public"."customer" ("c_custkey", "c_name", "c_address", "c_nationkey", "c_phone", "c_acctbal", "c_mktsegment") values

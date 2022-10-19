@@ -57,6 +57,9 @@ with rawdata as (
      + 
     
     p12.generated_number * power(2, 12)
+     + 
+    
+    p13.generated_number * power(2, 13)
     
     
     + 1
@@ -102,6 +105,9 @@ with rawdata as (
      cross join 
     
     p as p12
+     cross join 
+    
+    p as p13
     
     
 
@@ -109,7 +115,7 @@ with rawdata as (
 
     select *
     from unioned
-    where generated_number <= 7305
+    where generated_number <= 14610
     order by generated_number
 
 
@@ -121,7 +127,7 @@ all_periods as (
     select (
         
 
-    cast('2010-01-01' as date) + ((interval '1 day') * (row_number() over (order by 1) - 1))
+    cast('1990-01-01' as date) + ((interval '1 day') * (row_number() over (order by 1) - 1))
 
 
     ) as date_day

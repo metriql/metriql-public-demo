@@ -59,6 +59,7 @@ metrics:
     label: Important Order Counts
     description: "Imported orders from our customers"
     type: count
+    sql: "1"
     timestamp: o_orderdate
     time_grains: [day, week, month, year]
 
@@ -69,7 +70,7 @@ metrics:
     
     filters:
       - field: o_orderpriority
-        operator: "not_equals"
+        operator: "!="
         value: "test"
     meta:
         metriql:
@@ -79,7 +80,7 @@ metrics:
   - name: paid_users
     model: ref('orders')
     label: Paid Users
-    type: count
+    type: count_distinct
     sql: o_custkey
     timestamp: o_orderdate
     time_grains: [day, week, month]

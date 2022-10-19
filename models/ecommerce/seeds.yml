@@ -71,7 +71,7 @@ metrics:
     filters:
       - field: o_orderpriority
         operator: "!="
-        value: "test"
+        value: "'test'"
     meta:
         metriql:
           hidden: false

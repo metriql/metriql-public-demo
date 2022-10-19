@@ -8,6 +8,4 @@ models:
           - name: id
             description: "The primary key for this table" 
             tests:
-                - unique
-                - not_null  
-  
+                - unique  
